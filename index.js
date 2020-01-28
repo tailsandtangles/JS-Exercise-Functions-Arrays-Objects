@@ -39,8 +39,13 @@ function addNumbers(num1, num2) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
-  /* code here */
+function makePersonObject(id, name, email) {
+  const person ={
+    id: id,
+    name: name,
+    email: email
+  }
+  return person;
 }
 
 /**
@@ -56,10 +61,8 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
-}
-
+function getName(object) {
+  return "Hello, my name is " + object.name;}
 /**
  * ### Challenge `makeSmartPerson`
  * 
@@ -73,13 +76,19 @@ function getName(/* code here */) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
-}
+function makeSmartPerson(Sarah) {
+  const smartPerson = {
+    name: Sarah,
 
+    sum: function (num1, num2){
+      return 1 + 2;
+    },
 
-
-
+    speak: function() {
+      return "Hello, my name is " + Sarah;
+    }
+  }
+  return smartPerson; }
 
 /*
 // ⭐️ Example Test Data ⭐️
@@ -135,8 +144,8 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoByIndex(inventory, index) {
-  /* code here */
+function getCarInfoByIndex(carArray, index) {
+  return "This is a " + carArray[index].car_make + carArray[index].car_model;
 }
 
 /**
@@ -166,8 +175,14 @@ function getLastCarInfo(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(inventory, id) {
+  let car;
+  for (let i=0; i < inventory.length; i++) {
+    if (inventory[i].id === id) {
+      car = inventory[i]
+    }
+  }
+  return `This is a {car.car_make} {car.car_model}`;
 }
 
 /**
